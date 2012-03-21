@@ -1,0 +1,14 @@
+#Tabbed status line with [user@hostname] [tabs] [date/time]
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}[%{y}%n%{r}+%{Y}%f %t%?(%u)%?%{r}]%{w}%?%+Lw%?%?%= %{g}][ %{B}%Y-%m-%d %{Y}%D %C%A %{g}]'
+shelltitle "$ |bash"
+
+#Terminfo and termcap for 256 color terminal so VIM looks nice
+#Bold colours
+attrcolor b ".I"
+#Tell screen how to set colors like xterm. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#Erase background with current bg color, vim colours usually has whole page background colours
+defbce "on"
+#Set TERM to be something recognisable as a 256 colour term
+term screen-256color-bce
